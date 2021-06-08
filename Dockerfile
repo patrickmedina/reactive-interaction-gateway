@@ -51,4 +51,7 @@ EXPOSE 4000
 # Internal APIs
 EXPOSE 4010
 
+COPY docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
 CMD trap exit INT; trap exit TERM; /opt/sites/rig/bin/rig foreground & wait
